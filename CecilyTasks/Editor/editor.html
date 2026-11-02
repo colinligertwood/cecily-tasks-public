@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+<style>
+  :root {
+    color-scheme: light dark;
+    --label: -apple-system-label;
+    --secondary: -apple-system-secondary-label;
+    --dimmed: -apple-system-tertiary-label;
+    --accent: -apple-system-control-accent;
+    --selection: -apple-system-selected-text-background;
+    --separator: -apple-system-separator;
+    --fill: rgba(120, 120, 128, 0.12);
+    --font-size: 15px;
+  }
+  html, body { margin: 0; padding: 0; background: transparent; -webkit-text-size-adjust: 100%; }
+  #editor { min-height: 100%; }
+  #editor .cm-editor {
+    --pm-link-color: var(--accent);
+    --pm-muted-color: var(--secondary);
+    --pm-header-mark-color: var(--dimmed);
+    --pm-code-background-color: var(--fill);
+    --pm-code-btn-background-color: var(--fill);
+    --pm-code-btn-hover-background-color: var(--separator);
+    --pm-blockquote-vertical-line-background-color: var(--separator);
+    --pm-cursor-color: var(--accent);
+    --pm-code-font: ui-monospace, Menlo, monospace;
+    background: transparent;
+    color: var(--label);
+  }
+  #editor .cm-editor.cm-focused { outline: none; }
+  #editor .cm-content {
+    padding: 4px 0;
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: var(--font-size);
+    line-height: 1.35;
+  }
+  #editor .cm-line { padding: 0; }
+  #editor.title-line .cm-content > .cm-line:first-child { font-size: 1.4em; font-weight: 600; padding-bottom: 0.3em; }
+  #editor .cm-selectionBackground, #editor .cm-content ::selection { background: var(--selection) !important; }
+  #editor .cm-gutters { color: var(--dimmed); }
+  #editor .cm-placeholder { color: var(--dimmed); }
+
+  #editor .cm-rendered-list-mark { color: var(--secondary); margin: 0 0.4em 0 0.1em; }
+  #editor .cm-checkbox { accent-color: var(--accent); width: 1em; height: 1em; margin: 0 0.4em 0 0; vertical-align: middle; }
+  #editor .cm-fixed-tab-width-widget { width: 2em; }
+  #editor .cm-line:has(.cm-checkbox:checked) { color: var(--secondary); text-decoration: line-through; }
+
+  #editor .cm-blockquote-line { padding-left: 14px; color: var(--secondary); }
+  #editor .cm-blockquote-line::before { inset-inline-start: 2px; border-left-width: 3px; }
+  #editor .cm-nested-blockquote-border { border-left-width: 3px; }
+
+  #editor .cm-inline-code { font-size: 0.88em; padding: 0.1em 0.3em; border-radius: 4px; }
+  #editor .cm-fenced-code-line { margin-left: 0; padding: 0 8px; font-size: 0.88em; }
+  #editor .cm-fenced-code-line-first { border-top-left-radius: 6px; border-top-right-radius: 6px; }
+  #editor .cm-fenced-code-line-last { border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; }
+  #editor .cm-code-block-lang-container { font-size: 0.8em; }
+
+  #editor .cm-item-link { color: var(--accent); cursor: pointer; }
+  #editor .cm-item-link-gone { color: var(--dimmed); cursor: default; }
+
+  #editor .cm-horizontal-rule-container { padding: 0; }
+  #editor .cm-horizontal-rule-container hr { border: none; border-top: 1px solid var(--separator); margin: 0; }
+</style>
+</head>
+<body>
+<div id="editor"></div>
+<script src="editor.js"></script>
+</body>
+</html>

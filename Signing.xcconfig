@@ -1,0 +1,8 @@
+// Signing settings for every target. Set your own Apple developer team in Local.xcconfig, next
+// to this file, which Git ignores:
+//
+//     DEVELOPMENT_TEAM = <your team ID>
+//
+// Without it, Xcode asks for a team before signing; builds with CODE_SIGNING_ALLOWED=NO don't need one.
+
+#include? "Local.xcconfig"

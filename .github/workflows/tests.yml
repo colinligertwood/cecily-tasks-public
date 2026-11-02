@@ -1,0 +1,24 @@
+# Checks formatting, runs TasksCore's tests, then builds the app for the Mac and iPhone and runs its tests,
+# on every push to main and every pull request. Builds are unsigned.
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use the newest Xcode
+        run: sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)"
+      - name: Formatting
+        run: swift format lint --strict --recursive --parallel CecilyTasks CecilyTasksTests Share Packages/TasksCore/Sources Packages/TasksCore/Tests
+      - name: TasksCore tests
+        run: swift test --package-path Packages/TasksCore -Xswiftc -warnings-as-errors
+      - name: App build and tests on the Mac
+        run: xcodebuild test -scheme 'Cecily Tasks' -destination 'platform=macOS' -scmProvider system CODE_SIGNING_ALLOWED=NO
+      - name: App build for iPhone
+        run: xcodebuild build -scheme 'Cecily Tasks' -destination 'generic/platform=iOS Simulator' -scmProvider system CODE_SIGNING_ALLOWED=NO

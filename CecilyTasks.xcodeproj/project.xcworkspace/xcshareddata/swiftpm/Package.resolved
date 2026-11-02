@@ -1,0 +1,15 @@
+{
+  "originHash" : "39e99e5d92806e2bd05953ebd75cc4169ce976d20991d262ee0cec432f027b4c",
+  "pins" : [
+    {
+      "identity" : "cecily-kit-public",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/colinligertwood/cecily-kit-public.git",
+      "state" : {
+        "revision" : "f8892312a6d207c88215b9c752bcb0df57fbb501",
+        "version" : "0.2.0"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,0 +1,15 @@
+.DS_Store
+.build/
+.swiftpm/
+DerivedData/
+dist/
+xcuserdata/
+# Apps exported from Xcode's Organizer into the repo folder
+/Cecily Tasks [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] */
+*.xcarchive
+
+# The editor's npm packages: `npm ci` in Editor/ brings them back
+/Editor/node_modules/
+
+# Signing settings of your own (see Signing.xcconfig)
+Local.xcconfig
